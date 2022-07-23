@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Data Pekerja')
+@section('title','Data Pekerja Baru')
 @section('content')
 {{-- card --}}
 <div class="col-lg-12">
@@ -21,10 +21,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>No hp</th>
-                        <th>Jenis Kelamin</th>
+                        <th>Id Pekerja</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -54,6 +51,14 @@
                     <!-- end -->       
                     {{-- nama --}}
                     <input type="hidden" name="data_id" id="data_id">
+
+                    {{-- id --}}
+                    <div class="form-group">
+                        <label for="id" class="col-md-4 control-label">Id Pekerja</label>
+                        <div class="col-md-6">
+                            <input type="text" name="id" id="id" class="form-control" placeholder="Id Pekerja" readonly>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="nama" class="col-sm-4 control-label">Nama</label>
                         <div class="col-sm-12">
@@ -119,13 +124,14 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('pekerja.index') }}",
+                ajax: "{{ route('list-pekerja') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'nama', name: 'nama'},
-                    {data: 'alamat', name: 'alamat'},
-                    {data: 'no_hp', name: 'no_hp'},
-                    {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+                    {data: 'id', name: 'id'},
+                    // {data: 'nama', name: 'nama'},
+                    // {data: 'alamat', name: 'alamat'},
+                    // {data: 'no_hp', name: 'no_hp'},
+                    // {data: 'jenis_kelamin', name: 'jenis_kelamin'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -177,6 +183,7 @@
                      $('#saveBtn').prop('disabled', false);
                     // get data respone
                     $('#data_id').val(data.id);
+                    $('#id').val(data.id);
                     $('#nama').val(data.nama);
                     $('#alamat').val(data.alamat);
                     $('#no_hp').val(data.no_hp);

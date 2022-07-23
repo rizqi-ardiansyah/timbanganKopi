@@ -31,6 +31,12 @@
             <span>Data Pekerja</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('list-pekerja')}}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>List Pekerja Baru</span>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('kopi.index')}}">

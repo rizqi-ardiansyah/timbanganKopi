@@ -18,7 +18,7 @@ class PekerjaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Pekerja::latest()->get();
+            $data = Pekerja::where('status', 'terdaftar')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
@@ -53,7 +53,6 @@ class PekerjaController extends Controller
     {
         $this->validate($request, [
             'nama' =>                'required',
-            'nik' =>                 'required',
             'alamat' =>              'required',
             'no_hp' =>               'required',
             'jenis_kelamin' =>       'required'
@@ -62,11 +61,11 @@ class PekerjaController extends Controller
         $pekerja = Pekerja::updateOrCreate(
             ['id' => $request->data_id],
             [
-                'nik' => $request->nik,
                 'nama' => $request->nama,
                 'alamat' => $request-> alamat,
                 'no_hp' => $request-> no_hp,
-                'jenis_kelamin' => $request-> jenis_kelamin
+                'jenis_kelamin' => $request-> jenis_kelamin,
+                'status' => 'terdaftar'
             ]
         );
 
@@ -130,5 +129,23 @@ class PekerjaController extends Controller
             'status' => 'sukses',
             'message'=>'Pekerja berhasil Dihapus'
         ],200);
+    }
+
+    public function getPekerja(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Pekerja::where('status', 'belum')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                       $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editData">Edit</a>';
+                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteData">Delete </a>';
+                        
+                        return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+       return view('list.index');
     }
 }

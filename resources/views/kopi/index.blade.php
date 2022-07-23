@@ -40,10 +40,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modalHeading" >Tambah Data @yield('title')</h4>
+                {{-- <h4 class="modal-title" id="modalHeading" >Tambah Data @yield('title')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> --}}
             </div>
             <div class="modal-body">    
               
@@ -75,7 +75,8 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Tanggal</label>
                         <div class="col-sm-12">
-                            <input type="text" id="tgl_menimbang" class="form-control dt-post required" name="tgl_menimbang" value="{{date('Y-m-d')}}" readonly>
+
+                            <input type="text" id="tgl_menimbang" class="form-control dt-post required" name="tgl_menimbang" value="{{date('Y-m-d H:i:s')}}" readonly>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -162,21 +163,21 @@
             });
             // end store process
             // edit data
-            $('body').on('click', '.editData', function () {
-                var data_id = $(this).data('id');
-                $.get("{{ route('kopi.index') }}" +'/' + data_id +'/edit', function (data) {
-                    $('#saveBtn').html("Update");  
-                    $('#modalHeading').html("Edit Data");
-                    $('#modalBox').modal('show');
-                    $("#errors-validate").hide();
-                     $('#saveBtn').prop('disabled', false);
-                    // get data respone
-                    $('#data_id').val(data.id);
-                    $('#pekerja_id').val(data.pekerja_id);
-                    $('#berat').val(data.berat);
-                    $('#tgl_menimbang').val(data.tgl_menimbang);
-                })  
-            });
+            // $('body').on('click', '.editData', function () {
+            //     var data_id = $(this).data('id');
+            //     $.get("{{ route('kopi.index') }}" +'/' + data_id +'/edit', function (data) {
+            //         $('#saveBtn').html("Update");  
+            //         $('#modalHeading').html("Edit Data");
+            //         $('#modalBox').modal('show');
+            //         $("#errors-validate").hide();
+            //          $('#saveBtn').prop('disabled', false);
+            //         // get data respone
+            //         $('#data_id').val(data.id);
+            //         $('#pekerja_id').val(data.pekerja_id);
+            //         $('#berat').val(data.berat);
+            //         $('#tgl_menimbang').val(data.tgl_menimbang);
+            //     })  
+            // });
             // end
             // delete
             $('body').on('click', '.deleteData', function () {

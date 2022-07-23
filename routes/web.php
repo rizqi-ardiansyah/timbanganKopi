@@ -26,7 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::get('laporan-data', [App\Http\Controllers\LaporanController::class, 'data'])->name('data-ex');
     Route::get('laporan-data-kopi', [App\Http\Controllers\LaporanController::class, 'dataKopi'])->name('kopi-ex');
     Route::get('laporan-data-pekerja', [App\Http\Controllers\LaporanController::class, 'dataPekerja'])->name('pekerja-ex');
+    Route::get('list-pekerja', [App\Http\Controllers\PekerjaController::class, 'getPekerja'])->name('list-pekerja');
     Route::resources([
+        // 'list-pekerja'   => App\Http\Controllers\ListController::class,
         'pekerja'   => App\Http\Controllers\PekerjaController::class,
         'kopi'      => App\Http\Controllers\KopiController::class,
     ]);

@@ -15,11 +15,11 @@ class Pekerja extends Model
 
     // fillable
     protected $fillable = [
-        'nik',
         'nama',
         'alamat',
         'no_hp',
         'jenis_kelamin',
+        'status'
     ];
 
     // belongsTo kopi
