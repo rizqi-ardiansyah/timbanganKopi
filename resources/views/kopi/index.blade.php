@@ -115,7 +115,7 @@
                 ajax: "{{ route('kopi.index') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'pekerja.nama', name: 'pekerja.nama'},
+                    {data: 'nama', name: 'nama'},
                     {data: 'berat', name: 'berat',
                         render: function(data, type, row){
                             return data + ' Kg';

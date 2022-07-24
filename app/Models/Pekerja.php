@@ -15,6 +15,7 @@ class Pekerja extends Model
 
     // fillable
     protected $fillable = [
+        'id_pekerja',
         'nama',
         'alamat',
         'no_hp',

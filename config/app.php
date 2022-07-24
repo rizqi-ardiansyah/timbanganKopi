@@ -67,7 +67,8 @@ return [
     |
     */
 
-    'timezone' => date_default_timezone_set('Asia/Jakarta'),
+    // 'timezone' => date_default_timezone_set('Asia/Jakarta'),
+    'timezone' => env('APP_TIMEZONE', 'Asia/Jakarta'),
 
     /*
     |--------------------------------------------------------------------------

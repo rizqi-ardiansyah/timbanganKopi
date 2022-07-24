@@ -15,7 +15,7 @@ class CreatePekerjaTable extends Migration
     {
         Schema::create('tbl_pekerja', function (Blueprint $table) {
             $table->id();
-            $table->string('nik')->unique();
+            $table->string('id_pekerja')->unique();
             $table->string('nama');
             $table->string('alamat');
             $table->string('no_hp');

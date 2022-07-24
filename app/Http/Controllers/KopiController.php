@@ -20,7 +20,7 @@ class KopiController extends Controller
         $pekerja = Pekerja::all();
         if ($request->ajax()) {
             // get data kopi with pekerja
-            $data = Kopi::with('pekerja')->where('berat', '!=', NULL)->get();
+            $data = Kopi::with('pekerja')->where('berat', '!=', 0)->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){

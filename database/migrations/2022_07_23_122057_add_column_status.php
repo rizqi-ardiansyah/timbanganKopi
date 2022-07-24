@@ -15,7 +15,7 @@ class AddColumnStatus extends Migration
     {
         // update
         Schema::table('tbl_pekerja', function (Blueprint $table) {
-            $table->enum('status',['0', '1'])->default('0');
+            $table->enum('status',['belum', 'terdaftar'])->default('belum');
         });
     }
 

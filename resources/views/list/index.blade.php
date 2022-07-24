@@ -52,11 +52,11 @@
                     {{-- nama --}}
                     <input type="hidden" name="data_id" id="data_id">
 
-                    {{-- id --}}
+                    {{-- id_pekerja --}}
                     <div class="form-group">
                         <label for="id" class="col-md-4 control-label">Id Pekerja</label>
                         <div class="col-md-6">
-                            <input type="text" name="id" id="id" class="form-control" placeholder="Id Pekerja" readonly>
+                            <input type="text" name="id_pekerja" id="id" class="form-control" placeholder="Id Pekerja" readonly>
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,7 +127,7 @@
                 ajax: "{{ route('list-pekerja') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'id', name: 'id'},
+                    {data: 'id_pekerja', name: 'id_pekerja'},
                     // {data: 'nama', name: 'nama'},
                     // {data: 'alamat', name: 'alamat'},
                     // {data: 'no_hp', name: 'no_hp'},
@@ -183,7 +183,7 @@
                      $('#saveBtn').prop('disabled', false);
                     // get data respone
                     $('#data_id').val(data.id);
-                    $('#id').val(data.id);
+                    $('#id').val(data.id_pekerja);
                     $('#nama').val(data.nama);
                     $('#alamat').val(data.alamat);
                     $('#no_hp').val(data.no_hp);

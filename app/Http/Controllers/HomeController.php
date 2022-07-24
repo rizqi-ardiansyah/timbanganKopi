@@ -29,4 +29,5 @@ class HomeController extends Controller
         $scale = Kopi::sum('berat');
         return view('home', compact('pekerja', 'kopi', 'scale'));
     }
+
 }

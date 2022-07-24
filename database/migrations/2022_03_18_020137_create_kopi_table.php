@@ -15,8 +15,8 @@ class CreateKopiTable extends Migration
     {
         Schema::create('tbl_kopi', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pekerja_id');
-            $table->foreign('pekerja_id')->references('id')->on('tbl_pekerja');
+            $table->string('pekerja_id');
+            $table->foreign('pekerja_id')->references('id_pekerja')->on('tbl_pekerja');
             $table->double('berat');
             $table->date('tgl_menimbang');
             $table->timestamps();
